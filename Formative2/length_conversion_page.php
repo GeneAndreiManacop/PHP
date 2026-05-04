@@ -27,12 +27,82 @@
                 <th colspan='6'>Metric Conversions</th>
             </tr>
             <tr>
-                <td class="unit">1 centimetre</th>
-                <td class="equal-cell">=</th>
-                <td class="unit"><?= $millimetres_per_centimetre?></th>
-                <td class="unit">1 centimetre</th>
-                <td class="equal-cell">=</th>
-                <td class="unit"><?= $millimetres_per_centimetre?></th>
+                <td class="unit">1 centimetre</td>
+                <td class="equal-cell">=</td>
+                <td class="unit"><?= $millimetres_per_centimetre; ?> millimetre</td>
+                <td class="unit">1 cm</td>
+                <td class="equal-cell">=</td>
+                <td class="unit"><?= $millimetres_per_centimetre; ?> mm</td>
+            </tr>
+            <tr>
+                <td class="unit">1 decimetre</td>
+                <td class="equal-cell">=</td>
+                <td class="unit"><?= $centimetres_per_decimetre; ?> centimetre</td>
+                <td class="unit">1 dm</td>
+                <td class="equal-cell">=</td>
+                <td class="unit"><?= $centimetres_per_decimetre; ?> cm</td>
+            </tr>
+            <tr>
+                <td class="unit">1 metre</td>
+                <td class="equal-cell">=</td>
+                <td class="unit"><?= $centimetres_per_metre; ?> centimetre</td>
+                <td class="unit">1 m</td>
+                <td class="equal-cell">=</td>
+                <td class="unit"><?= $centimetres_per_metre; ?> cm</td>
+            </tr>
+            <tr>
+                <td class="unit">1 kilometre</td>
+                <td class="equal-cell">=</td>
+                <td class="unit"><?= $metres_per_kilometre; ?> metres</td>
+                <td class="unit">1 km</td>
+                <td class="equal-cell">=</td>
+                <td class="unit"><?= $millimetres_per_centimetre; ?> m</td>
+            </tr>
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th colspan='6'>Imperial Conversions</td>
+            </tr>
+            <tr>
+                <td class="unit">1 foot</td>
+                <td class="equal-cell">=</td>
+                <td class="unit"><?= $inch_per_foot; ?> inches</td>
+                <td class="unit">1 ft</td>
+                <td class="equal-cell">=</td>
+                <td class="unit"><?= $inch_per_foot; ?> in</td>
+            </tr>
+            <tr>
+                <td class="unit">1 yard</td>
+                <td class="equal-cell">=</td>
+                <td class="unit"><?= $feet_per_yard; ?> feet</td>
+                <td class="unit">1 yd</td>
+                <td class="equal-cell">=</td>
+                <td class="unit"><?= $feet_per_yard; ?> feet</td>
+            </tr>
+            <tr>
+                <td class="unit">1 chain</td>
+                <td class="equal-cell">=</td>
+                <td class="unit"><?= $yards_per_chain; ?> yards</td>
+                <td class="unit">1 ch</td>
+                <td class="equal-cell">=</td>
+                <td class="unit"><?= $yards_per_chain; ?> yd</td>
+            </tr>
+            <tr>
+                <td class="unit">1 furlong</td>
+                <td class="equal-cell">=</td>
+                <td class="unit"><?= $yards_per_furlong;?> yards (or <?= $chains_per_furlong; ?> chains) </td>
+                <td class="unit">1 fur</td>
+                <td class="equal-cell">=</td>
+                <td class="unit"><?= $yards_per_furlong;?> yD (or <?= $chains_per_furlong; ?> ch) </td>
+            </tr>
+            <tr>
+                <td class="unit">1 mile</td>
+                <td class="equal-cell">=</td>
+                <td class="unit"><?= $yards_per_mile;?> yards (or <?= $furlongs_per_mile; ?> fur) </td>
+                <td class="unit">1 mi</td>
+                <td class="equal-cell">=</td>
+                <td class="unit"><?= $yards_per_mile;?> yards (or <?= $furlongs_per_mile; ?> fur) </td>
             </tr>
         </table>
     </main>
