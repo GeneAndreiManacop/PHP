@@ -35,14 +35,6 @@
         $certification_provider = "Pearson VUE Certiport";
         $certification_deadline_2030 = "Until 2030";
         $certification_deadline_2031 = "Until 2031";
-        
-        // I used arrays to make it easier. I apologize if this isn't allowed.
-        $certificates = [
-            ["IT Specialist - Databases", "Pearson VUE Certiport", "until 2030"],
-            ["IT Specialist - Java", "Pearson VUE Certiport", "until 2030"],
-            ["IT Specialist - JavaScript", "Pearson VUE Certiport", "until 2031"],
-            ["IT Specialist - Python", "Pearson VUE Certiport", "until 2031"]
-        ]
     ?>
 
     <main>
@@ -136,7 +128,7 @@
                                 <span><?= $certification_deadline_2030 ?></span>
                             </div>
                         </div> 
-                        
+
                         <div class='attainment-item'>
                             <p><?= $certification2_name ?></p>
                             <div>
