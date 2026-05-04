@@ -20,6 +20,11 @@
         $yards_per_mile = 1760;
         $furlongs_per_mile = 8;
 
+        $millimetre_to_inches_ratio = 25.4;
+        $millimetre_to_inches_ratio = 2.54;
+        $metre_to_inch_ratio = 39.37;
+        $metre_to_foot_ratio = 3.281;
+
     ?>
     <main>
         <table>
@@ -29,7 +34,7 @@
             <tr>
                 <td class="unit">1 centimetre</td>
                 <td class="equal-cell">=</td>
-                <td class="unit"><?= $millimetres_per_centimetre; ?> millimetre</td>
+                <td class="unit"><?= 1 * $millimetres_per_centimetre; ?> millimetre</td>
                 <td class="unit">1 cm</td>
                 <td class="equal-cell">=</td>
                 <td class="unit"><?= $millimetres_per_centimetre; ?> mm</td>
@@ -104,6 +109,26 @@
                 <td class="equal-cell">=</td>
                 <td class="unit"><?= $yards_per_mile;?> yards (or <?= $furlongs_per_mile; ?> fur) </td>
             </tr>
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th colspan='6'>Metric -> Imperial</td>
+            </tr>
+            <tr>
+                <td class="unit">1 millimetre</td>
+                <td class="equal-cell">=</td>
+                <td class="unit"><?= round(1 / $millimetre_to_inches_ratio, 5); ?> inches</td>
+                <td class="unit">1 mm</td>
+                <td class="equal-cell">=</td>
+                <td class="unit"><?= round(1 / $millimetre_to_inches_ratio, 5); ?> in</td>
+            </tr>
+            <tr>
+                <td class="unit">1 centimetre</td>
+                <td class="equal-cell">=</td>
+                <td class="unit"><?= round(1 / $millimetre_to_inches_ratio, 5); ?> inches</td>
+            </tr>
+            
         </table>
     </main>
 </body>
