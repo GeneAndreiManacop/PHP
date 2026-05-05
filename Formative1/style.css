@@ -1,0 +1,118 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+html,
+body {
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+}
+main {
+    display: flex;
+    align-items: stretch;
+    max-width: 816px;
+    width: 100%;
+    border-right: 1px solid gray;
+    min-height: 100vh;
+}
+
+hr {
+    margin: 0px;
+    height: 1px;
+    border-radius: 5px;
+}
+
+.left-section hr, hr {
+    background-color: white;
+}
+
+.right-section hr {
+    background-color: black;
+}
+
+.list ul {
+    padding-left: 16px;
+}
+
+.list ul li{
+    margin-bottom: 8px;
+}
+
+section {
+    padding: 24px;
+}
+
+.left-section {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+    flex: 0 0 175px;
+    max-width: 175px;
+    align-items: stretch;
+    background-color:rgb(48, 48, 109);
+    color: whitesmoke;
+}
+
+.info h2 {
+    margin-bottom: 8px;
+}
+
+.profile-summary {
+    line-height: 24px;
+    text-align: justify;
+}
+
+.left-section .info div h3, 
+.left-section .info div p{
+    margin: 16px 0px;
+}
+
+.name {
+    margin: 12px 0px;
+    font-size: 36px;
+}
+
+.role {
+    margin: 12px 0px;
+    font-weight: 400;
+    letter-spacing: 4px;
+}
+
+.profile-picture {
+    border-radius: 100%;
+}
+
+.attainments-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.attainments-list div {
+    margin: 2px 0px;
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+}
+
+.attainments-list div div {
+    display: flex;
+    flex-direction: column;
+}
+
+.attainment-item {
+    justify-content: space-between;
+}
+
+.attainment-item p{
+    font-weight: bold;
+}
+
+.attainment-item div {
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+}
