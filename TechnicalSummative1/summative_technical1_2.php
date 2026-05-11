@@ -7,17 +7,15 @@
     <link rel="stylesheet" href="technical_summative1_1_style.css">
 </head>
 <body>
-    <?php 
-        echo "<table>";
-        for ($irow = 0; $irow <= 10; ++$irow) {
-            echo "<tr>";
-            for ($icolumn = 0; $icolumn <= 10; ++$icolumn){
-                $num = $irow * $icolumn;
-                echo "<td>$num</td>";
-            }
-            echo "</tr>";
-        }
-        echo "</table>";
-    ?>
+    <table>
+        <?php for ($irow = 0; $irow <= 10; ++$irow): ?>
+            <tr>
+            <?php for ($icolumn = 0; $icolumn <= 10; ++$icolumn): ?>
+                <td><?= $irow * $icolumn ?></td>
+            <?php endfor; ?>
+            </tr>
+        <?php endfor; ?>
+    </table>
+    
 </body>
 </html>
