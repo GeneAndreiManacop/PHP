@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="technical_summative1_2_style.css">
 </head>
 <body>
+    <h1>Multiplication Table</h1>
     <table>
         <?php for ($irow = 0; $irow <= 10; ++$irow): ?>
             <tr>
