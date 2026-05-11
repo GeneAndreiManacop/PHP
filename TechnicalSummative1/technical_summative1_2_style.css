@@ -7,3 +7,11 @@ tr:nth-child(odd) td:nth-child(even){
 tr:nth-child(even) td:nth-child(odd) {
     background-color: red;
 }
+
+tr:nth-child(even) td:nth-child(even) {
+    background-color: yellow;
+}
+
+tr:nth-child(odd) td:nth-child(odd) {
+    background-color: yellow;
+}
