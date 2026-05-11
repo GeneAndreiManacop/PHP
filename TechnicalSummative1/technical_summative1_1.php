@@ -17,7 +17,7 @@
     ?>
     <form action="">
         <label for="usernamename"></label>
-        <input type="text" name="username" id="" value=<?=$username?>>
+        <input type="text" name="username" id="" value=<?=$firstName?>>
     </form>
 </body>
 </html>
