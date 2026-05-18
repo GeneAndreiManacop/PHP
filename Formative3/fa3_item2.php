@@ -34,9 +34,7 @@
     <table>
         <th colspan=2>
             Array list: <?php
-                foreach ($numArray as $num) {
-                    echo $num.", ";
-                }
+                echo join(", ", $numArray)
             ?>
         </th>
         <tr>
