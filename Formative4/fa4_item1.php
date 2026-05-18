@@ -7,11 +7,6 @@
     <title>FA4 Item 1</title>
 </head>
 <body>
-    <?php 
-        // 5 biography of friends or anyone
-        // Must use include and/or require
-        // Use gridbox
-    ?>
     <main>
         <div class="persona">
             <?php include 'user1.php'; ?>
