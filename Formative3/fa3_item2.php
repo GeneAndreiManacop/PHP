@@ -9,13 +9,17 @@
 </head>
 <body>
     <?php 
+        // Define number array
         $numArray = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
+        // Declare arithmetic result variable
         $sum = null;
         $difference = null;
         $product = null;
         $quotient = null;
 
+        // Perform arithmetic on the elements of the array.
+        // If the variable is not define (null), assign the first given element.
         foreach ($numArray as $num) {
             if (is_null($sum) && is_null($difference) && is_null($product) && is_null($quotient)) {
                 $sum = $num;
