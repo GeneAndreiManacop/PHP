@@ -9,6 +9,7 @@
 </head>
 <body>
     <?php 
+        // Define functions for each common arithmetic methods
         function add($num1, $num2, $num3) {
             return $num1 + $num2 + $num3;
         }
@@ -25,6 +26,7 @@
             return $num1 / $num2 / $num3;
         }
         
+        // Define pre0defined parameter values
         $param1 = 25;
         $param2 = 13;
         $param3 = 6;
