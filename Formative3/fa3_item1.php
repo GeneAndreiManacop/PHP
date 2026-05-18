@@ -81,5 +81,26 @@
                 "contactNum" => "(768) 699-1447"
             ),
         )
+    ?>
+    <main>
+        <div class="header">
+            <p>no.</p>
+            <p>Name</p>
+            <p>Image</p>
+            <p>Age</p>
+            <p>Birth Date</p>
+            <p>Contact Number</p>
+        </div>
+        <?php foreach ($people as $i => $person): ?>
+            <div class="row">
+                <p><?= $i + 1 ?></p>
+                <p><?= $person["name"] ?></p>
+                <img src= <?= $person["image"] ?> >
+                <p><?= $person["age"] ?></p>
+                <p><?= $person["birthDate"] ?></p>
+                <p><?= $person["contactNum"] ?></p>
+            </div>
+        <?php endforeach; ?>
+    </main>
 </body>
 </html>
