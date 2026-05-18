@@ -8,8 +8,7 @@
 </head>
 <body>
     <?php
-        // 20 names in the array
-        // All lowercase letters
+        // 20 names in the array, all in lowercase letters.
         $arrayOfNames = array(
             "alice",
             "bob",
