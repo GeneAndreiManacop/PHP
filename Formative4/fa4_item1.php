@@ -12,5 +12,22 @@
         // Must use include and/or require
         // Use gridbox
     ?>
+    <main>
+        <div class="persona">
+            <?php include 'user1.php'; ?>
+        </div>
+        <div class="persona">
+            <?php include 'user2.php'; ?>
+        </div>
+        <div class="persona">
+            <?php include 'user3.php'; ?>
+        </div>
+        <div class="persona">
+            <?php include 'user4.php'; ?>
+        </div>
+        <div class="persona">
+            <?php include 'user5.php'; ?>
+        </div>
+    </main>
 </body>
 </html>
