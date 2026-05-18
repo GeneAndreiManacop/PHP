@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    padding: 1rem 0;
+    border: 1px solid gray;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr .5fr 1fr 1fr .75fr 1fr;
+    text-align: center;
+}
+
+.row .column {
+    padding: .6rem 0;
+}
+
+.row:nth-child(odd) {
+    background-color: cadetblue;
+    border: 1px solid gray;
+    color: white;
+}
