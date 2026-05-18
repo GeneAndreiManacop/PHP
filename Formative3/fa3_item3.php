@@ -8,6 +8,27 @@
     <title>FA3 Item 2</title>
 </head>
 <body>
+    <?php 
+        function add($num1, $num2, $num3) {
+            return $num1 + $num2 + $num3;
+        }
+        
+        function subtract($num1, $num2, $num3) {
+            return $num1 - $num2 - $num3;
+        }
+        
+        function multiply($num1, $num2, $num3) {
+            return $num1 * $num2 * $num3;
+        }
+        
+        function divide($num1, $num2, $num3) {
+            return $num1 / $num2 / $num3;
+        }
+        
+        $param1 = 25;
+        $param2 = 13;
+        $param3 = 6;
+    ?>
 
     <table>
         <th colspan=2>
