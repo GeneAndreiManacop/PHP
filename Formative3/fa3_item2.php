@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="fa3_item2_style.css">
     <title>FA3 Item 2</title>
 </head>
 <body>
