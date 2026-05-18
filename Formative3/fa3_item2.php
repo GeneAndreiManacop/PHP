@@ -32,7 +32,7 @@
     ?>
 
     <table>
-        <th>
+        <th colspan=2>
             Array list: <?php
                 foreach ($numArray as $num) {
                     echo $num.", ";
