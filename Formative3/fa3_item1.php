@@ -20,63 +20,63 @@
             array(
                 "name" => "Roberto Wheeler", 
                 "image" => "roberto.jpg", 
-                "age" => 20, 
+                "age" => 81, 
                 "birthDate" => "10/4/1944", 
                 "contactNum" => "(746) 609-0778"
             ),
             array(
                 "name" => "Johnni Murray", 
                 "image" => "murray.jpg", 
-                "age" => 20, 
+                "age" => 70, 
                 "birthDate" => "8/4/1955", 
                 "contactNum" => "(266) 728-4029"
             ),
             array(
                 "name" => "Billie Baker", 
                 "image" => "baker.jpg", 
-                "age" => 20, 
+                "age" => 67, 
                 "birthDate" => "8/5/1958", 
                 "contactNum" => "(874) 964-6602"
             ),
             array(
                 "name" => "Mark Reyes", 
                 "image" => "reyes.jpg", 
-                "age" => 20, 
+                "age" => 80, 
                 "birthDate" => "12/1/1945", 
                 "contactNum" => "(440) 821-7203"
             ),
             array(
                 "name" => "Kirk Mitchelle", 
                 "image" => "mitchelle.jpg", 
-                "age" => 20, 
+                "age" => 36, 
                 "birthDate" => "2/5/1990", 
                 "contactNum" => "(830) 713-4803"
             ),
             array(
                 "name" => "Robin West", 
                 "image" => "west.jpg", 
-                "age" => 20, 
+                "age" => 62, 
                 "birthDate" => "8/6/1963", 
                 "contactNum" => "(391) 321-0988"
             ),
             array(
                 "name" => "Sophie Welch", 
                 "image" => "welch.jpg", 
-                "age" => 20, 
+                "age" => 50, 
                 "birthDate" => "7/1/1975", 
                 "contactNum" => "(575) 281-1410"
             ),
             array(
                 "name" => "Aubree Wright", 
                 "image" => "wright.jpg", 
-                "age" => 20, 
+                "age" => 58, 
                 "birthDate" => "1/4/1968", 
                 "contactNum" => "(608) 220-7811"
             ),
             array(
                 "name" => "Jamie Hoffman", 
                 "image" => "hoffman.jpg", 
-                "age" => 20, 
+                "age" => 62,    
                 "birthDate" => "8/6/1963", 
                 "contactNum" => "(768) 699-1447"
             ),
