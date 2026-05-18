@@ -7,8 +7,8 @@
     <title>FA3 Item 1</title>
 </head>
 <body>
-
     <?php
+        // Define pre-defined user data
         $people = array(
             array(
                 "name" => "Jared Webb", 
