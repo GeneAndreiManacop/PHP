@@ -7,21 +7,21 @@
     <title>FA3 Item 1</title>
 </head>
 <body>
-    
+
     <?php
         $people = array(
             array(
                 "name" => "Jared Webb", 
                 "image" => "webb.jpg", 
                 "age" => 49, 
-                "birthDate" => "4-3-1977", 
+                "birthDate" => "4/3/1977", 
                 "contactNum" => "(327) 471-4100"
             ),
             array(
                 "name" => "Roberto Wheeler", 
                 "image" => "roberto.jpg", 
                 "age" => 20, 
-                "birthDate" => "10-4-1944", 
+                "birthDate" => "10/4/1944", 
                 "contactNum" => "(746) 609-0778"
             ),
             array(
