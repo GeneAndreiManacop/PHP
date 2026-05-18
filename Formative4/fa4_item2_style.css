@@ -15,7 +15,7 @@ header {
 
 .row {
     display: grid;
-    grid-template-columns: 1fr .5fr 1fr 1fr .75fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     text-align: center;
 }
 

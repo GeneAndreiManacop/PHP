@@ -9,27 +9,28 @@
 <body>
     <?php
         // 20 names in the array
+        // All lowercase letters
         $arrayOfNames = array(
-            "Alice",
-            "Bob",
-            "Charlie",
-            "David",
-            "Eve",
-            "Frank",
-            "Grace",
-            "Heidi",
-            "Ivan",
-            "Judy",
-            "Karl",
-            "Leo",
-            "Mallory",
-            "Nina",
-            "Oscar",
-            "Peggy",
-            "Quentin",
-            "Rupert",
-            "Sybil",
-            "Trent"
+            "alice",
+            "bob",
+            "charlie",
+            "david",
+            "eve",
+            "frank",
+            "grace",
+            "heidi",
+            "ivan",
+            "judy",
+            "karen",
+            "leo",
+            "mallory",
+            "nancy",
+            "oscar",
+            "peggy",
+            "quinn",
+            "rudy",
+            "sybil",
+            "trent"
         );
     ?>
     <header>List of names</header>
