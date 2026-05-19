@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+table, th, td {
+    border: 1px solid black;   
+}
+
+th, td {
+    padding: 12px 12px;
+}
+
+td {
+    text-align: center;
+    padding: 12px 12px;
+}
