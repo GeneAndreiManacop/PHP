@@ -80,7 +80,8 @@
                 "birthDate" => "8/6/1963", 
                 "contactNum" => "(768) 699-1447"
             ),
-        )
+        );
+        sort($people);
     ?>
     <main>
         <div class="header">
