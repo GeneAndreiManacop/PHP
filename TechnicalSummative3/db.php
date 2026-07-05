@@ -1,6 +1,11 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "user_system");
-if ($conn->connect_error) {
-    die("Connection dropped: " . $conn->connect_error);
+$host = "localhost";
+$user = "root";
+$password = "";
+$dbname = "user_system";
+
+$conn = mysqli_connect($host, $user, $password, $dbname);
+
+if (!$conn) {
+    die("Connection failed..." . mysqli_connect_error());
 }
-?>

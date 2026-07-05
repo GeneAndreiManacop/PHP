@@ -1,46 +1,60 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+session_start();
 
 if (!isset($_SESSION['username'])) {
     header("Location: login_b.php");
     exit();
 }
 
-include 'db.php';
+require 'db.php';
 $user = $_SESSION['username'];
 $message = "";
+$messageType = "";
+$userData = null;
 
-// User-Side Retrieval of Record
-$stmt = $conn->prepare("SELECT first_name, middle_name, last_name, birthday, email, contact_number, password FROM users WHERE username = ?");
-$stmt->bind_param("s", $user);
-$stmt->execute();
-$result = $stmt->get_result();
-$userData = $result->fetch_assoc();
-$stmt->close();
-
+// Handle password reset
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['reset_password'])) {
     $current_password = $_POST['current_password'];
     $new_password = $_POST['new_password'];
-    $confirm_new_password = $_POST['confirm_new_password'];
-
-    // Validation matching checks
-    if ($current_password !== $userData['password']) {
+    $reenter_password = $_POST['reenter_password'];
+    
+    // Fetch current password from database
+    $sql = "SELECT password FROM users WHERE username = '$user'";
+    $result = mysqli_query($conn, $sql);
+    $userData_pw = mysqli_fetch_assoc($result);
+    
+    // Validate current password
+    if ($userData_pw['password'] !== $current_password) {
         $message = "Current password is not the same with the old password";
-    } elseif ($new_password !== $confirm_new_password) {
+        $messageType = "error";
+    } 
+    // Validate new passwords match
+    elseif ($new_password !== $reenter_password) {
         $message = "New password and Re-Enter new password should be the same.";
-    } else {
-        // Update operational query execution
-        $update_stmt = $conn->prepare("UPDATE users SET password = ? WHERE username = ?");
-        $update_stmt->bind_param("ss", $new_password, $user);
-        $update_stmt->execute();
-        $update_stmt->close();
-
-        $message = "Password updated successfully.";
-        $userData['password'] = $new_password;
+        $messageType = "error";
+    } 
+    // Update password
+    else {
+        $update_sql = "UPDATE users SET password = '$new_password' WHERE username = '$user'";
+        if (mysqli_query($conn, $update_sql)) {
+            $message = "Password reset successfully!";
+            $messageType = "success";
+        } else {
+            $message = "Error updating password.";
+            $messageType = "error";
+        }
     }
 }
+
+// Fetch user information
+$sql = "SELECT first_name, middle_name, last_name, birthday, email, contact_number FROM users WHERE username = '$user'";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    $userData = mysqli_fetch_assoc($result);
+}
+
+mysqli_close($conn);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,23 +71,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['reset_password'])) {
         <a href="logout_b.php" class="logout">Log-out</a>
         <h2>User Information Form</h2>
 
-        <p><strong>Welcome</strong> <?php echo htmlspecialchars($userData['first_name'] . ' ' . $userData['middle_name'] . ' ' . $userData['last_name']); ?></p>
-        <p><strong>Birthday:</strong> <?php echo htmlspecialchars($userData['birthday']); ?></p>
-        <p><strong>Contact Details</strong></p>
-        <p style="margin-left: 20px;"><strong>Email:</strong> <?php echo htmlspecialchars($userData['email']); ?></p>
-        <p style="margin-left: 20px;"><strong>Contact:</strong> <?php echo htmlspecialchars($userData['contact_number']); ?></p>
+        <?php if (!empty($message)): ?>
+            <p class="<?php echo ($messageType === 'error') ? 'alert' : 'success-msg'; ?>">
+                <?php echo $message; ?>
+            </p>
+        <?php endif; ?>
 
-        <div class="reset-section">
-            <h5>RESET PASSWORD</h5>
-            <?php if (!empty($message)) echo "<p class='alert'>$message</p>"; ?>
-            <form action="home_b.php" method="POST">
-                <div class="row"><label>Enter Current Password:</label><input type="password" name="current_password" required></div>
-                <div class="row"><label>Enter New Password:</label><input type="password" name="new_password" required></div>
-                <div class="row"><label>Re-Enter New Password:</label><input type="password" name="confirm_new_password" required></div>
-                <button type="submit" name="reset_password" class="btn-sub">Reset Password</button>
+        <?php if ($userData): ?>
+            <p><strong>Welcome</strong> <?php echo $userData['first_name'] . ' ' . $userData['middle_name'] . ' ' . $userData['last_name']; ?></p>
+            <p><strong>Birthday:</strong> <?php echo $userData['birthday']; ?></p>
+            <p><strong>Contact Details</strong></p>
+            <p style="margin-left: 20px;"><strong>Email:</strong> <?php echo $userData['email']; ?></p>
+            <p style="margin-left: 20px;"><strong>Contact:</strong> <?php echo $userData['contact_number']; ?></p>
+            
+            <!-- Reset Password Section -->
+            <hr style="margin: 30px 0; border: 1px solid #ccc;">
+            <h3>RESET PASSWORD</h3>
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="password-reset-form">
+                <div class="form-group">
+                    <label>Enter Current Password:</label>
+                    <input type="password" name="current_password" required>
+                </div>
+                <div class="form-group">
+                    <label>Enter New Password:</label>
+                    <input type="password" name="new_password" required>
+                </div>
+                <div class="form-group">
+                    <label>Re-Enter New Password:</label>
+                    <input type="password" name="reenter_password" required>
+                </div>
+                <button type="submit" name="reset_password" class="submit-btn">Reset Password</button>
             </form>
-        </div>
-        <div class="footer-text">&copy; Crix Brix</div>
+        <?php endif; ?>
     </main>
 </body>
 

@@ -1,10 +1,6 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+session_start();
 
-// If no active session, user cannot access home.php
-// They will be redirected to the login page
 if (!isset($_SESSION['username'])) {
     header("Location: login_a.php");
     exit();
@@ -24,8 +20,8 @@ if (!isset($_SESSION['username'])) {
     <main class="container dashboard-box">
         <a href="logout_a.php" class="logout-link">Logout</a>
         <h2>Homepage</h2>
-        <p>Welcome, <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong></p>
-        <p class="page-note">Static validation session verified.</p>
+        <p>Welcome, <strong><?php echo $_SESSION['username']; ?></strong></p>
+        <p class="page-note">Session verified.</p>
     </main>
 </body>
 

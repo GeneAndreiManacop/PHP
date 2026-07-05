@@ -6,7 +6,7 @@ if (isset($_SESSION['username'])) {
     exit();
 }
 
-include 'db.php';
+require('db.php');
 $message = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -23,32 +23,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($password !== $confirm_password) {
         $message = "password and confirm password are not the same";
     } else {
-        // Save form submission straight to the database
-        $stmt = $conn->prepare("INSERT INTO users (first_name, middle_name, last_name, username, password, birthday, email, contact_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssssss", $first_name, $middle_name, $last_name, $username, $password, $birthday, $email, $contact_num);
-        
-        if ($stmt->execute()) {
+        $sql = "INSERT INTO users (first_name, middle_name, last_name, username, password, birthday, email, contact_number) VALUES ('$first_name', '$middle_name', '$last_name', '$username', '$password', '$birthday', '$email', '$contact_num')";
+
+        if (mysqli_query($conn, $sql)) {
             $message = "Registration successful! You can now log in.";
         } else {
             $message = "Error: Username might already be taken.";
         }
-        $stmt->close();
     }
 }
+
+mysqli_close($conn);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Activity B</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <main class="container form-container">
         <h2>My Personal Information</h2>
-        <?php if (!empty($message)) echo "<p class='msg'>$message</p>"; ?>
-        
+        <?php if (!empty($message)) echo "<p class='success-msg'>$message</p>"; ?>
+
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
             <div class="form-group"><label>First Name</label><input type="text" name="first_name" required></div>
             <div class="form-group"><label>Middle Name</label><input type="text" name="middle_name"></div>
@@ -63,4 +64,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </main>
 </body>
+
 </html>

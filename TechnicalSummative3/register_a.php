@@ -1,21 +1,13 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
-// Gatekeeping: If a session is active, user cannot open the registration page
-if (isset($_SESSION['username'])) {
-    header("Location: home_a.php");
-    exit();
-}
+session_start();
 
 $error = "";
 $show_result = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Password and Confirm Password check before showing result
+    // Check password and confirm password are the same before showing result
     if ($_POST['password'] !== $_POST['confirm_password']) {
-        $error = "password and confirm password are not the same";
+        $error = "Password and confirm password are not the same";
     } else {
         $show_result = true;
     }
@@ -34,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <main class="container form-container">
         <h2>My Personal Information</h2>
-        <?php if (!empty($error)) echo "<p class='error'>$error</p>"; ?>
+        <?php if (!empty($error)) echo "<p class='error-msg'>$error</p>"; ?>
 
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
             <div class="form-group"><label>First Name</label><input type="text" name="first_name" required></div>
@@ -48,18 +40,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="form-group"><label>Contact Number</label><input type="text" name="contact_num" required></div>
             <button type="submit" class="submit-btn">Submit</button>
         </form>
-    </main>
 
-    <?php if ($show_result): ?>
+        <?php if ($show_result): ?>
         <div class="result-box">
-            <p><strong>Full Name:</strong> <?php echo htmlspecialchars($_POST['first_name'] . ' ' . $_POST['middle_name'] . ' ' . $_POST['last_name']); ?></p>
-            <p><strong>Username:</strong> <?php echo htmlspecialchars($_POST['username']); ?></p>
-            <p><strong>Password:</strong> <?php echo htmlspecialchars($_POST['password']); ?></p>
-            <p><strong>Birthday:</strong> <?php echo htmlspecialchars($_POST['birthday']); ?></p>
-            <p><strong>Email:</strong> <?php echo htmlspecialchars($_POST['email']); ?></p>
-            <p><strong>Contact Number:</strong> <?php echo htmlspecialchars($_POST['contact_num']); ?></p>
+            <h3>Submitted Information</h3>
+            <div class="result-grid">
+                <div class="result-item">
+                    <span class="result-label">Full Name:</span>
+                    <span class="result-value"><?php echo $_POST['first_name'] . ' ' . $_POST['middle_name'] . ' ' . $_POST['last_name']; ?></span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Username:</span>
+                    <span class="result-value"><?php echo $_POST['username']; ?></span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Password:</span>
+                    <span class="result-value"><?php echo $_POST['password']; ?></span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Birthday:</span>
+                    <span class="result-value"><?php echo $_POST['birthday']; ?></span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Email:</span>
+                    <span class="result-value"><?php echo $_POST['email']; ?></span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Contact Number</span>
+                    <span class="result-value"><?php echo $_POST['contact_num']; ?></span>
+                </div>
+            </div>
         </div>
     <?php endif; ?>
+    </main>
 </body>
 
 </html>

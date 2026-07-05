@@ -1,35 +1,31 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+session_start();
 
 if (isset($_SESSION['username'])) {
     header("Location: home_b.php");
     exit();
 }
 
-include 'db.php';
+require 'db.php';
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Using credentials saved in your tables to login
-    $stmt = $conn->prepare("SELECT username FROM users WHERE username = ? AND password = ?");
-    $stmt->bind_param("ss", $username, $password);
-    $stmt->execute();
-    $stmt->store_result();
+    $sql = "SELECT username FROM users WHERE username = '$username' AND password = '$password'";
+    $result = mysqli_query($conn, $sql);
 
-    if ($stmt->num_rows > 0) {
+    if (mysqli_num_rows($result) > 0) {
         $_SESSION['username'] = $username;
         header("Location: home_b.php");
         exit();
     } else {
         $error = "Invalid username or password credentials.";
     }
-    $stmt->close();
 }
+
+mysqli_close($conn);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +50,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <button type="submit" class="btn">Login</button>
         </form>
-        <div class="footer-text">&copy; Crix Brix</div>
     </main>
 </body>
 </html>
