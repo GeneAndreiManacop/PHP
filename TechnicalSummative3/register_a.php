@@ -42,36 +42,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
 
         <?php if ($show_result): ?>
-        <div class="result-box">
-            <h3>Submitted Information</h3>
-            <div class="result-grid">
-                <div class="result-item">
-                    <span class="result-label">Full Name:</span>
-                    <span class="result-value"><?php echo $_POST['first_name'] . ' ' . $_POST['middle_name'] . ' ' . $_POST['last_name']; ?></span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Username:</span>
-                    <span class="result-value"><?php echo $_POST['username']; ?></span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Password:</span>
-                    <span class="result-value"><?php echo $_POST['password']; ?></span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Birthday:</span>
-                    <span class="result-value"><?php echo $_POST['birthday']; ?></span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Email:</span>
-                    <span class="result-value"><?php echo $_POST['email']; ?></span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Contact Number</span>
-                    <span class="result-value"><?php echo $_POST['contact_num']; ?></span>
+            <div class="result-box">
+                <h3>Submitted Information</h3>
+                <div class="result-grid">
+                    <div class="result-item">
+                        <span class="result-label">Full Name:</span>
+                        <span class="result-value"><?php echo $_POST['first_name'] . ' ' . $_POST['middle_name'] . ' ' . $_POST['last_name']; ?></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Username:</span>
+                        <span class="result-value"><?php echo $_POST['username']; ?></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Password:</span>
+                        <span class="result-value"><?php echo $_POST['password']; ?></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Birthday:</span>
+                        <span class="result-value"><?php echo $_POST['birthday']; ?></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Email:</span>
+                        <span class="result-value"><?php echo $_POST['email']; ?></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Contact Number</span>
+                        <span class="result-value"><?php echo $_POST['contact_num']; ?></span>
+                    </div>
                 </div>
             </div>
-        </div>
-    <?php endif; ?>
+        <?php endif; ?>
     </main>
 </body>
 

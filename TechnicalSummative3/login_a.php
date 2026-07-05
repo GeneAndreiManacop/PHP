@@ -12,7 +12,7 @@ $error = "";
 $remembered_username = "";
 $remembered_password = "";
 
-// Check if cookies exist. If it does, populate forms
+// Check if cookies exist. If it does, populate forms.
 if (isset($_COOKIE['username']) && isset($_COOKIE['password'])) {
     $remembered_username = $_COOKIE['username'];
     $remembered_password = $_COOKIE['password'];

@@ -95,20 +95,6 @@ button:hover {
     background-color: #0097a7;
 }
 
-.success-msg,
-.error-msg {
-    color: #c62828;
-    font-size: 0.9rem;
-    margin-top: 0.25rem;
-}
-
-.success-msg {
-    color: #1b8a3a;
-}
-
-.error-msg {
-    color: #c62828;
-}
 
 .nav-link {
     display: block;
@@ -207,7 +193,6 @@ button:hover {
     }
 }
 
-/* Password Reset Form Styles */
 .password-reset-form {
     margin-top: 1.5rem;
     padding-top: 1.5rem;
@@ -240,6 +225,18 @@ button:hover {
     border: 1px solid #66bb6a;
     border-radius: 0.5rem;
     color: #1b8a3a;
+    font-weight: bold;
+    text-align: center;
+}
+
+.error-msg {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin: 1rem 0;
+    background-color: #ffebee;
+    border: 1px solid #ef5350;
+    border-radius: 0.5rem;
+    color: #c62828;
     font-weight: bold;
     text-align: center;
 }

@@ -7,7 +7,8 @@ if (isset($_SESSION['username'])) {
 }
 
 require('db.php');
-$message = "";
+$error_message = "";
+$success_message = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $first_name = $_POST['first_name'];
@@ -21,14 +22,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contact_num = $_POST['contact_num'];
 
     if ($password !== $confirm_password) {
-        $message = "password and confirm password are not the same";
+        $error_message = "Password and confirm password are not the same";
     } else {
         $sql = "INSERT INTO users (first_name, middle_name, last_name, username, password, birthday, email, contact_number) VALUES ('$first_name', '$middle_name', '$last_name', '$username', '$password', '$birthday', '$email', '$contact_num')";
 
         if (mysqli_query($conn, $sql)) {
-            $message = "Registration successful! You can now log in.";
+            $success_message = "Registration successful! You can now log in.";
         } else {
-            $message = "Error: Username might already be taken.";
+            $error_message = "Error: Username might already be taken.";
         }
     }
 }
@@ -48,7 +49,8 @@ mysqli_close($conn);
 <body>
     <main class="container form-container">
         <h2>My Personal Information</h2>
-        <?php if (!empty($message)) echo "<p class='success-msg'>$message</p>"; ?>
+        <?php if (!empty($success_message)) echo "<p class='success-msg'>$success_message</p>"; ?>
+        <?php if (!empty($error_message)) echo "<p class='error-msg'>$error_message</p>"; ?>
 
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
             <div class="form-group"><label>First Name</label><input type="text" name="first_name" required></div>
